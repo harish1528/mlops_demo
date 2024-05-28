@@ -21,8 +21,9 @@ class DataIngestion:
 
     def initiate_data_ingestion(self):
         logging.info("Data Ingestion initiated")
+        logging.info("this is my test log data")
         try:
-            data=pd.read_csv("Data\gemstone.csv")
+            data=pd.read_csv("https://github.com/harish1528/gemstone_data1/raw/main/gemstone.csv")
             logging.info("reading  data into dataframe")
             os.makedirs(os.path.dirname(os.path.join(self.ingestion_config.raw_data_path)),exist_ok=True)
             data.to_csv(self.ingestion_config.raw_data_path,index=False)
@@ -50,10 +51,10 @@ class DataIngestion:
             logging.info()
             raise customexception(e,sys)
         
-        if __name__=="__main__":
-            obj=DataIngestion()
+if __name__=="__main__":
+    obj=DataIngestion()
 
-            obj.initiate_data_ingestion()
+    obj.initiate_data_ingestion()
         
         
 
